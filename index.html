@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🇧🇴 Bolivia Decide 2025 • Información Electoral</title>
+  <meta name="description" content="Plataforma cívica para las elecciones bolivianas 2025. Información oficial, test de afinidad y datos electorales.">
+  <link rel="icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🗳️</text></svg>">
+  
+  <!-- Fuentes modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Biblioteca html2canvas para generar PNG -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  
+  <style>
+    /* ===== VARIABLES CON COLORES BOLIVIA ===== */
+    :root {
+      --rojo-bolivia: #D52B1E;
+      --amarillo-bolivia: #F9E300;
+      --verde-bolivia: #00773D;
+      --blanco: #FFFFFF;
+      --light-bg: #F8F9FA;
+      --dark: #1A1A2E;
+      --gray: #6C757D;
+      --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ===== BANDERA BOLIVIA GRANDE ===== */
+    .bandera-bolivia {
+      height: 80px;
+      background: linear-gradient(90deg, 
+        var(--rojo-bolivia) 33%, 
+        var(--amarillo-bolivia) 33%, 
+        var(--amarillo-bolivia) 66%, 
+        var(--verde-bolivia) 66%);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      font-size: 2rem;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      letter-spacing: 2px;
+    }
+
+    /* ===== HEADER HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      background: var(--blanco);
+      color: var(--dark);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--rojo-bolivia);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .countdown {
+      background: var(--amarillo-bolivia);
+      color: var(--dark);
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      display: inline-block;
+      border: 3px solid var(--rojo-bolivia);
+      box-shadow: var(--shadow-md);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    /* ===== ALERTA TSE ===== */
+    .tse-alert {
+      background: var(--verde-bolivia);
+      color: var(--blanco);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .tse-alert p {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .btn-tse {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--rojo-bolivia);
+      color: var(--blanco);
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      font-size: 1.1rem;
+    }
+
+    .btn-tse:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: #b92519;
+    }
+
+    /* ===== CONTENIDO PRINCIPAL REORGANIZADO ===== */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      padding: 1rem 0 2rem;
+    }
+
+    @media (max-width: 968px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== TEST EN COLUMNA IZQUIERDA (MÁS ANCHA) ===== */
+    .test-section {
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--verde-bolivia);
+    }
+
+    .test-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .test-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--verde-bolivia);
+      margin-bottom: 0.5rem;
+    }
+
+    .test-description {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .questions-container {
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .questions-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .questions-container::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .questions-container::-webkit-scrollbar-thumb {
+      background: var(--verde-bolivia);
+      border-radius: 10px;
+    }
+
+    .question-card {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 0.8rem;
+      border-left: 4px solid var(--amarillo-bolivia);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .option {
+      background: var(--blanco);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.4rem 0;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.9rem;
+    }
+
+    .option:hover {
+      border-color: var(--verde-bolivia);
+      transform: translateX(3px);
+    }
+
+    .option.selected {
+      border-color: var(--verde-bolivia);
+      background: rgba(0, 120, 59, 0.1);
+      transform: translateX(3px);
+    }
+
+    .btn-test {
+      display: block;
+      width: 100%;
+      background: var(--verde-bolivia);
+      color: var(--blanco);
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-test:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: #00612e;
+    }
+
+    /* ===== COMPARACIÓN DE CANDIDATOS EN COLUMNA DERECHA ===== */
+    .comparison-section {
+      background: var(--blanco);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid var(--rojo-bolivia);
+    }
+
+    .comparison-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--rojo-bolivia);
+    }
+
+    .candidates-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .candidate-comparison {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .candidate-comparison-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 0.8rem;
+      border: 3px solid var(--blanco);
+      box-shadow: var(--shadow-md);
+      object-fit: cover;
+    }
+
+    .candidate-paz .candidate-comparison-image {
+      border-color: var(--rojo-bolivia);
+    }
+
+    .candidate-quiroga .candidate-comparison-image {
+      border-color: var(--amarillo-bolivia);
+    }
+
+    .candidate-comparison-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .candidate-paz .candidate-comparison-name {
+      color: var(--rojo-bolivia);
+    }
+
+    .candidate-quiroga .candidate-comparison-name {
+      color: var(--amarillo-bolivia);
+    }
+
+    .candidate-comparison-party {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    .comparison-table th {
+      background: var(--light-bg);
+      padding: 0.8rem;
+      text-align: center;
+      font-weight: 600;
+      border: 1px solid #ddd;
+    }
+
+    .comparison-table td {
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .comparison-table .paz-cell {
+      background: rgba(213, 43, 30, 0.05);
+    }
+
+    .comparison-table .quiroga-cell {
+      background: rgba(249, 227, 0, 0.05);
+    }
+
+    .btn-comparison {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--rojo-bolivia);
+      color: var(--blanco);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.9rem;
+      width: 100%;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-comparison:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-yellow {
+      background: var(--amarillo-bolivia);
+      color: var(--dark);
+    }
+
+    .btn-yellow:hover {
+      background: #e6d100;
+    }
+
+    /* ===== SECCIÓN ESTADÍSTICAS ===== */
+    .stats-section {
+      padding: 2rem 0;
+      background: var(--light-bg);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--blanco);
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border-top: 4px solid;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-card:nth-child(1) {
+      border-top-color: var(--rojo-bolivia);
+    }
+
+    .stat-card:nth-child(2) {
+      border-top-color: var(--amarillo-bolivia);
+    }
+
+    .stat-card:nth-child(3) {
+      border-top-color: var(--verde-bolivia);
+    }
+
+    .stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-card:nth-child(1) .stat-title {
+      color: var(--rojo-bolivia);
+    }
+
+    .stat-card:nth-child(2) .stat-title {
+      color: var(--amarillo-bolivia);
+    }
+
+    .stat-card:nth-child(3) .stat-title {
+      color: var(--verde-bolivia);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--rojo-bolivia);
+      color: var(--blanco);
+      padding: 0.7rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      font-size: 0.85rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-green {
+      background: var(--verde-bolivia);
+    }
+
+    .btn-green:hover {
+      background: #00612e;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== BOTÓN DESCARGAR ===== */
+    .btn-download {
+      display: block;
+      width: 100%;
+      background: var(--amarillo-bolivia);
+      color: var(--dark);
+      padding: 1.2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: #e6d100;
+    }
+
+    /* ===== AGRADECIMIENTO FORONDA ===== */
+    .foronda-credit {
+      background: var(--blanco);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border-left: 5px solid var(--verde-bolivia);
+    }
+
+    .foronda-credit p {
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .foronda-credit a {
+      color: var(--verde-bolivia);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .foronda-credit a:hover {
+      color: var(--rojo-bolivia);
+      text-decoration: underline;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .bandera-bolivia { 
+        height: 70px; 
+        font-size: 1.5rem; 
+      }
+      .hero h1 { 
+        font-size: 2.8rem; 
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .countdown {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+      .main-content { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .candidates-comparison { grid-template-columns: 1fr; }
+      .tse-alert p { font-size: 1.1rem; }
+      .btn-tse { padding: 1rem 2rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANDERA BOLIVIA GRANDE Y VISIBLE -->
+  <div class="bandera-bolivia">
+    BOLIVIA 2025
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>BOLIVIA DECIDE</h1>
+      <p>Tu voto construye el futuro de nuestra patria</p>
+      <div class="countdown">
+        <p id="contador">Cargando...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alerta TSE -->
+  <section class="container">
+    <div class="tse-alert">
+      <p>🔍 Consulta si eres jurado, tu recinto, mesa y dirección oficial en el sistema del TSE</p>
+      <a href="https://yoparticipo.oep.org.bo/auth/signin" target="_blank" class="btn-tse">
+        📋 MIRA SI ERES JURADO
+      </a>
+    </div>
+  </section>
+
+  <!-- Contenido Principal REORGANIZADO -->
+  <section class="container main-content">
+    
+    <!-- TEST EN COLUMNA IZQUIERDA (MÁS ANCHA) -->
+    <div class="test-section">
+      <div class="test-header">
+        <h2 class="test-title">🎯 Test de Afinidad</h2>
+        <p class="test-description">
+          Responde 10 preguntas basadas en los planes de gobierno oficiales. 
+          Descubre con qué propuestas te identificas más.
+        </p>
+      </div>
+
+      <div class="questions-container" id="testForm">
+        <!-- Las preguntas se generarán aquí -->
+      </div>
+
+      <button class="btn-test" onclick="calcularResultado()">
+        🎯 VER MI RESULTADO
+      </button>
+
+      <div id="resultado"></div>
+    </div>
+
+    <!-- COMPARACIÓN DE CANDIDATOS EN COLUMNA DERECHA -->
+    <div class="comparison-section">
+      <h2 class="comparison-title">Comparación de Candidatos</h2>
+      
+      <div class="candidates-comparison">
+        <div class="candidate-comparison candidate-paz">
+          <img src="paz.jpg" alt="Rodrigo Paz Pereira" class="candidate-comparison-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div style="display: none; width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 0.8rem; background: var(--rojo-bolivia); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; border: 3px solid var(--blanco); box-shadow: var(--shadow-md);">
+            RP
+          </div>
+          <h3 class="candidate-comparison-name">Rodrigo Paz</h3>
+          <p class="candidate-comparison-party">Partido Demócrata Cristiano</p>
+        </div>
+        
+        <div class="candidate-comparison candidate-quiroga">
+          <img src="tuto.jpg" alt="Jorge Quiroga Ramírez" class="candidate-comparison-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div style="display: none; width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 0.8rem; background: var(--amarillo-bolivia); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--dark); border: 3px solid var(--blanco); box-shadow: var(--shadow-md);">
+            JQ
+          </div>
+          <h3 class="candidate-comparison-name">Jorge Quiroga</h3>
+          <p class="candidate-comparison-party">Alianza Libertad y Democracia</p>
+        </div>
+      </div>
+
+      <table class="comparison-table">
+        <tr>
+          <th>Área</th>
+          <th>Rodrigo Paz</th>
+          <th>Jorge Quiroga</th>
+        </tr>
+        <tr>
+          <td><strong>Economía</strong></td>
+          <td class="paz-cell">Empresas estatales fuertes</td>
+          <td class="quiroga-cell">Inversión privada</td>
+        </tr>
+        <tr>
+          <td><strong>Seguridad</strong></td>
+          <td class="paz-cell">Fortalecimiento policial</td>
+          <td class="quiroga-cell">Reforma judicial</td>
+        </tr>
+        <tr>
+          <td><strong>Salud</strong></td>
+          <td class="paz-cell">Sistema universal gratuito</td>
+          <td class="quiroga-cell">Seguro universal</td>
+        </tr>
+        <tr>
+          <td><strong>Educación</strong></td>
+          <td class="paz-cell">Autonomía universitaria</td>
+          <td class="quiroga-cell">Acreditación de calidad</td>
+        </tr>
+        <tr>
+          <td><strong>Corrupción</strong></td>
+          <td class="paz-cell">Transparencia</td>
+          <td class="quiroga-cell">Justicia independiente</td>
+        </tr>
+      </table>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+        <a href="https://mauforonda.github.io/programas-de-gobierno-2025/programas/partido-democrata-cristiano.html" target="_blank" class="btn-comparison">
+          📚 Plan de Paz
+        </a>
+        <a href="https://mauforonda.github.io/programas-de-gobierno-2025/programas/alianza-libertad-y-democracia.html" target="_blank" class="btn-comparison btn-yellow">
+          📚 Plan de Quiroga
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGRADECIMIENTO A MAURICIO FORONDA -->
+  <section class="container">
+    <div class="foronda-credit">
+      <p>📚 <strong>Reconocimiento especial:</strong> Agradecemos a <a href="https://mauforonda.github.io/" target="_blank">Mauricio Foronda</a> por su invaluable trabajo de recopilación y análisis de información electoral.</p>
+      <p>Los planes de gobierno y datos comparativos utilizados en esta plataforma están basados en su investigación pública disponible en GitHub.</p>
+    </div>
+  </section>
+
+  <!-- Estadísticas y Mapas -->
+  <section class="stats-section">
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem; font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: var(--rojo-bolivia);">
+        📊 Estadísticas y Datos
+      </h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🌎</div>
+          <h3 class="stat-title">Mapas Electorales</h3>
+          <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5; font-size: 0.9rem;">
+            Visualiza resultados por departamento
+          </p>
+          <a href="https://datosbolivia.github.io/elecciones2025/" target="_blank" class="btn">
+            🌐 Explorar Mapas
+          </a>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <h3 class="stat-title">Análisis de Datos</h3>
+          <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5; font-size: 0.9rem;">
+            Estadísticas y proyecciones oficiales
+          </p>
+          <a href="https://mauforonda.github.io/" target="_blank" class="btn btn-yellow">
+            📊 Ver Análisis
+          </a>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">🔍</div>
+          <h3 class="stat-title">Más Información</h3>
+          <p style="color: var(--gray); margin-bottom: 1rem; line-height: 1.5; font-size: 0.9rem;">
+            Recursos y herramientas oficiales
+          </p>
+          <a href="https://www.oep.org.bo/" target="_blank" class="btn btn-green">
+            🏛️ TSE Oficial
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 2rem; background: var(--dark); color: var(--blanco); margin-top: 2rem; border-top: 4px solid var(--rojo-bolivia);">
+    <div class="container">
+      <p style="font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Bolivia 2025 - Plataforma Cívica Independiente</p>
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; flex-wrap: wrap;">
+        <a href="https://www.oep.org.bo/" target="_blank" style="color: var(--blanco); text-decoration: none; font-weight: 500;">TSE Oficial</a>
+        <a href="https://yoparticipo.oep.org.bo/" target="_blank" style="color: var(--blanco); text-decoration: none; font-weight: 500;">Verificar Padrón</a>
+        <a href="https://datosbolivia.github.io/elecciones2025/" target="_blank" style="color: var(--blanco); text-decoration: none; font-weight: 500;">Estadísticas</a>
+        <a href="https://mauforonda.github.io/" target="_blank" style="color: var(--blanco); text-decoration: none; font-weight: 500;">Mauricio Foronda</a>
+      </div>
+      <p style="opacity: 0.8; font-size: 0.85rem;">
+        Fuentes oficiales: TSE • Datos Bolivia • Mauricio Foronda
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Preguntas basadas en planes de gobierno (10 preguntas)
+    const questions = [
+      {
+        question: "¿Cómo debe manejarse la economía nacional?",
+        options: [
+          {
+            text: "Industrialización de recursos naturales con empresas estatales fuertes",
+            value: "paz"
+          },
+          {
+            text: "Economía de mercado con incentivos a la inversión privada",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Política sobre el litio y recursos estratégicos?",
+        options: [
+          {
+            text: "Control estatal con alianzas internacionales para industrialización",
+            value: "paz"
+          },
+          {
+            text: "Asociaciones público-privadas con transferencia tecnológica",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Enfoque en seguridad ciudadana?",
+        options: [
+          {
+            text: "Fortalecimiento policial y prevención social del delito",
+            value: "paz"
+          },
+          {
+            text: "Reforma judicial y sistema penitenciario integral",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Modelo de salud preferido?",
+        options: [
+          {
+            text: "Sistema único de salud universal y gratuito",
+            value: "paz"
+          },
+          {
+            text: "Seguro universal de salud con complemento privado",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Visión para la educación universitaria?",
+        options: [
+          {
+            text: "Autonomía universitaria con financiamiento estatal garantizado",
+            value: "paz"
+          },
+          {
+            text: "Acreditación de calidad y vinculación con sector productivo",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Política anticorrupción?",
+        options: [
+          {
+            text: "Fortalecimiento de órganos de control y transparencia",
+            value: "paz"
+          },
+          {
+            text: "Justicia independiente y rendición de cuentas",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Relación con organizaciones sociales?",
+        options: [
+          {
+            text: "Diálogo permanente y cogestión en políticas públicas",
+            value: "paz"
+          },
+          {
+            text: "Respeto institucional dentro del marco legal",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Política ambiental y cambio climático?",
+        options: [
+          {
+            text: "Protección de áreas naturales y desarrollo sostenible",
+            value: "paz"
+          },
+          {
+            text: "Economía verde con certificaciones internacionales",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Enfoque en desarrollo rural?",
+        options: [
+          {
+            text: "Soberanía alimentaria y apoyo a pequeños productores",
+            value: "paz"
+          },
+          {
+            text: "Agroindustria y mercados de exportación",
+            value: "quiroga"
+          }
+        ]
+      },
+      {
+        question: "¿Política de vivienda y urbanismo?",
+        options: [
+          {
+            text: "Vivienda social masiva y planificación urbana estatal",
+            value: "paz"
+          },
+          {
+            text: "Créditos hipotecarios y desarrollo urbano regulado",
+            value: "quiroga"
+          }
+        ]
+      }
+    ];
+
+    // Variables globales para almacenar resultados
+    let resultadoPaz = 0;
+    let resultadoQuiroga = 0;
+    let ganador = "";
+
+    // Generar preguntas
+    function generateQuestions() {
+      const container = document.getElementById('testForm');
+      container.innerHTML = '';
+
+      questions.forEach((q, index) => {
+        const questionHTML = `
+          <div class="question-card">
+            <div style="font-weight: 600; margin-bottom: 0.8rem; color: var(--dark); font-size: 1rem;">${q.question}</div>
+            <div>
+              ${q.options.map(opt => `
+                <div class="option" onclick="selectOption(this, ${index})">
+                  <input type="radio" name="q${index}" value="${opt.value}" style="display: none;">
+                  <div style="font-size: 0.9rem;">${opt.text}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        container.innerHTML += questionHTML;
+      });
+    }
+
+    // Seleccionar opción
+    function selectOption(element, questionIndex) {
+      const question = element.parentElement.parentElement;
+      question.querySelectorAll('.option').forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      element.classList.add('selected');
+      const radio = element.querySelector('input[type="radio"]');
+      radio.checked = true;
+    }
+
+    // Contador de días
+    function actualizarContador() {
+      const eleccion = new Date('2025-10-19T00:00:00');
+      const hoy = new Date();
+      const diff = eleccion - hoy;
+      const dias = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      
+      const mensajes = [
+        '¡Faltan {dias} días para las elecciones! 🗳️',
+        '¡Quedan {dias} días para votar! 🇧🇴', 
+        '¡{dias} días para decidir el futuro de Bolivia! ✨'
+      ];
+      
+      const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)].replace('{dias}', dias);
+      
+      document.getElementById('contador').textContent = 
+        dias > 0 ? mensaje : 
+        dias === 0 ? '¡HOY es el día de votar! 🗳️' : '¡Gracias por participar en la democracia! 🇧🇴';
+    }
+
+    // Calcular resultado
+    function calcularResultado() {
+      resultadoPaz = 0;
+      resultadoQuiroga = 0;
+      
+      for (let i = 0; i < 10; i++) {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        if (sel) {
+          if (sel.value === 'paz') resultadoPaz++;
+          else resultadoQuiroga++;
+        }
+      }
+      
+      if (resultadoPaz + resultadoQuiroga === 0) {
+        alert("Por favor, responde al menos una pregunta para obtener tu resultado.");
+        return;
+      }
+
+      ganador = resultadoPaz > resultadoQuiroga ? "Rodrigo Paz Pereira" : "Jorge Quiroga Ramírez";
+      const porcentajePaz = Math.round((resultadoPaz / (resultadoPaz + resultadoQuiroga)) * 100);
+      const porcentajeQuiroga = Math.round((resultadoQuiroga / (resultadoPaz + resultadoQuiroga)) * 100);
+
+      const resultadoHTML = `
+        <div style="background: var(--light-bg); padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem; text-align: center; border: 3px solid var(--verde-bolivia); box-shadow: var(--shadow-md);">
+          <h3 style="color: var(--verde-bolivia); margin-bottom: 1rem; font-size: 1.3rem; font-weight: 800;">🎉 TU RESULTADO</h3>
+          <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 600;">
+            Tu afinidad es con <span style="color: ${resultadoPaz > resultadoQuiroga ? 'var(--rojo-bolivia)' : 'var(--amarillo-bolivia)'}">${ganador}</span>
+          </p>
+          
+          <div style="display: flex; justify-content: center; gap: 2rem; margin: 1rem 0;">
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; color: var(--rojo-bolivia); font-weight: 800;">${porcentajePaz}%</div>
+              <div style="color: var(--gray); font-weight: 600; font-size: 0.9rem;">Rodrigo Paz</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; color: var(--amarillo-bolivia); font-weight: 800;">${porcentajeQuiroga}%</div>
+              <div style="color: var(--gray); font-weight: 600; font-size: 0.9rem;">Jorge Quiroga</div>
+            </div>
+          </div>
+          
+          <button class="btn-download" onclick="descargarResultado()">
+            📥 DESCARGAR MI RESULTADO
+          </button>
+          
+          <p style="color: var(--gray); font-style: italic; margin-top: 1rem; font-size: 0.85rem;">
+            ⚠️ Este test es una guía informativa basada en planes de gobierno oficiales.
+          </p>
+        </div>
+      `;
+
+      document.getElementById("resultado").innerHTML = resultadoHTML;
+    }
+
+    // Descargar resultado como PNG
+    function descargarResultado() {
+      const resultadoDiv = document.getElementById("resultado");
+      const elementoImagen = document.createElement("div");
+      elementoImagen.style.width = "600px";
+      elementoImagen.style.height = "400px";
+      elementoImagen.style.padding = "2rem";
+      elementoImagen.style.background = "linear-gradient(135deg, var(--light-bg) 0%, var(--blanco) 100%)";
+      elementoImagen.style.borderRadius = "20px";
+      elementoImagen.style.boxShadow = "var(--shadow-lg)";
+      elementoImagen.style.border = "4px solid var(--verde-bolivia)";
+      elementoImagen.style.display = "flex";
+      elementoImagen.style.flexDirection = "column";
+      elementoImagen.style.justifyContent = "center";
+      elementoImagen.style.alignItems = "center";
+      elementoImagen.style.textAlign = "center";
+      elementoImagen.style.fontFamily = "'Poppins', sans-serif";
+      
+      const total = resultadoPaz + resultadoQuiroga;
+      const porcentajePaz = Math.round((resultadoPaz / total) * 100);
+      const porcentajeQuiroga = Math.round((resultadoQuiroga / total) * 100);
+      
+      elementoImagen.innerHTML = `
+        <div style="font-size: 2rem; font-weight: 800; color: var(--verde-bolivia); margin-bottom: 1rem;">BOLIVIA DECIDE</div>
+        <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--dark);">
+          Mi afinidad en las elecciones presidenciales 2025 es:
+        </div>
+        <div style="font-size: 2.2rem; font-weight: 900; margin-bottom: 2rem; color: ${resultadoPaz > resultadoQuiroga ? 'var(--rojo-bolivia)' : 'var(--amarillo-bolivia)'}">
+          ${ganador}
+        </div>
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; color: var(--rojo-bolivia); font-weight: 800;">${porcentajePaz}%</div>
+            <div style="color: var(--gray); font-weight: 600; font-size: 1rem;">Rodrigo Paz</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; color: var(--amarillo-bolivia); font-weight: 800;">${porcentajeQuiroga}%</div>
+            <div style="color: var(--gray); font-weight: 600; font-size: 1rem;">Jorge Quiroga</div>
+          </div>
+        </div>
+        <div style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">
+          Bolivia Decide 2025 • www.boliviadecide.org
+        </div>
+      `;
+      
+      document.body.appendChild(elementoImagen);
+      
+      html2canvas(elementoImagen, {
+        scale: 2,
+        backgroundColor: null,
+        useCORS: true
+      }).then(canvas => {
+        const enlace = document.createElement('a');
+        enlace.download = `Mi_Afinidad_Electoral_Bolivia_2025.png`;
+        enlace.href = canvas.toDataURL('image/png');
+        enlace.click();
+        document.body.removeChild(elementoImagen);
+      });
+    }
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', function() {
+      generateQuestions();
+      actualizarContador();
+      setInterval(actualizarContador, 60000);
+    });
+  </script>
+
+</body>
+</html>
